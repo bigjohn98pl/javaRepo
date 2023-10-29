@@ -5,18 +5,21 @@ import java.util.List;
 import java.util.Map;
 
 public class ClientsX implements Clients{
-    private List<Client> clients;
+    private Map<String,Client> clients;
     @Override
     public String createNewClient(String firstName, String lastName) {
         Client newClient = new Client(firstName, lastName);
-        clients.add(newClient);
+        clients.put(newClient.getId(), newClient);
         return newClient.getId();
     }
 
     @Override
     public String activatePremiumAccount(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'activatePremiumAccount'");
+        if (clients.containsKey(clientId)){
+            clients.get(clientId).setIsPremium(true);
+            return clientId;
+        };
+        return "Client not found!";
     }
 
     @Override
