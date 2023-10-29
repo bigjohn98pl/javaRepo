@@ -1,10 +1,19 @@
 package com.capgemini.programowanie.obiektowe;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ClientsX implements Clients{
     private Map<String,Client> clients;
+    private int clientsNumber;
+    private int premiumClientsNumber;
+
+    public ClientsX(){
+        clients = new HashMap<>();
+        clientsNumber = 0;
+        premiumClientsNumber = 0;
+    }
     @Override
     public String createNewClient(String firstName, String lastName) {
         Client newClient = new Client(firstName, lastName);
@@ -18,7 +27,7 @@ public class ClientsX implements Clients{
             clients.get(clientId).setIsPremium(true);
             return clientId;
         };
-        return "Client not found!";
+        throw new ClientNotFoundException();
     }
 
     @Override
@@ -26,31 +35,47 @@ public class ClientsX implements Clients{
         if (clients.containsKey(clientId)){
             return clients.get(clientId).getFirstName() + " " + clients.get(clientId).getLastName();
         };
-        return "Client not found!";
+        throw new ClientNotFoundException();
     }
 
     @Override
     public LocalDate getClientCreationDate(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClientCreationDate'");
+        if (clients.containsKey(clientId)){
+            return clients.get(clientId).getCreateDate();
+        };  
+        throw new ClientNotFoundException();
     }
 
     @Override
     public boolean isPremiumClient(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isPremiumClient'");
+        if (clients.containsKey(clientId)){
+            return clients.get(clientId).getIsPremium();
+        }; 
+        throw new ClientNotFoundException();
     }
 
     @Override
     public int getNumberOfClients() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNumberOfClients'");
+        if(clients.isEmpty()){
+            this.clientsNumber = 0;
+        }else{
+            this.clientsNumber = clients.size();
+        }
+        return this.clientsNumber;
     }
 
     @Override
     public int getNumberOfPremiumClients() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNumberOfPremiumClients'");
+        if (clients.isEmpty()) {
+            this.premiumClientsNumber = 0;
+        }else{
+            for (Client client : clients.values()) {
+                if(client.getIsPremium()){
+                    this.premiumClientsNumber++;
+                }
+            }
+        }
+        return this.premiumClientsNumber;
     }
     
 }

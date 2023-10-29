@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import com.capgemini.programowanie.obiektowe.Client;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 
-
-public class ClientTest {
+@Tag("Clients")
+@DisplayName("Tests for class Client")
+class ClientTest {
     
     private Client client;
     private Client client2;
