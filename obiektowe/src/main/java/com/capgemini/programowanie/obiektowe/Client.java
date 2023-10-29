@@ -3,8 +3,6 @@ package com.capgemini.programowanie.obiektowe;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import org.omg.CORBA.Object;
-
 public class Client{
     private String firstName;
     private String lastName;
@@ -20,16 +18,16 @@ public class Client{
         this.isPremium = false;
     }
 
-    public String getName() {
-        return firstName;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public void setName(String name) {
+    public void setFirstName(String name) {
         this.firstName = name;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -37,11 +35,11 @@ public class Client{
     }
 
     public String getId() {
-        return id.toString();
+        return this.id.toString();
     }
 
     public LocalDate getCreateDate() {
-        return createDate;
+        return this.createDate;
     }
 
     public void setIsPremium(boolean setValue){

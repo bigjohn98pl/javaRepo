@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Date;
 
 import org.junit.jupiter.api.Assertions;
 import com.capgemini.programowanie.obiektowe.Client;
@@ -20,8 +19,8 @@ public class ClientTest {
     }
 
     @Test
-    public void testName() {
-        Assertions.assertEquals("Jan", client.getName());
+    public void testFirstName() {
+        Assertions.assertEquals("Jan", client.getFirstName());
     }
 
     @Test
