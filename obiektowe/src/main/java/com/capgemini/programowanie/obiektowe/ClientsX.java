@@ -1,7 +1,6 @@
 package com.capgemini.programowanie.obiektowe;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 
 public class ClientsX implements Clients{
@@ -24,8 +23,10 @@ public class ClientsX implements Clients{
 
     @Override
     public String getClientFullName(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClientFullName'");
+        if (clients.containsKey(clientId)){
+            return clients.get(clientId).getFirstName() + " " + clients.get(clientId).getLastName();
+        };
+        return "Client not found!";
     }
 
     @Override
