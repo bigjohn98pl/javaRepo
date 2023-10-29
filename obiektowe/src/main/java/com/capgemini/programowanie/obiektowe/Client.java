@@ -36,8 +36,8 @@ public class Client{
         this.lastName = lastName;
     }
 
-    public int getId() {
-        return id.hashCode();
+    public String getId() {
+        return id.toString();
     }
 
     public LocalDate getCreateDate() {
