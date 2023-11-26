@@ -43,8 +43,9 @@ public class WarehouseImp extends ClientsX implements Warehouse {
 
     @Override
     public Map<SupportedMetalType, Double> getMetalTypesToMassStoredByClient(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getMetalTypesToMassStoredByClient'");
+        Map<SupportedMetalType, Double> metals= new HashMap<>();
+        metals = storage.get(clientId);
+        return metals;
     }
 
     @Override

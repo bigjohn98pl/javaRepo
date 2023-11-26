@@ -3,12 +3,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.capgemini.programowanie.obiektowe.Client;
 import com.capgemini.programowanie.obiektowe.ClientNotFoundException;
 import com.capgemini.programowanie.obiektowe.ClientsX;
 import com.capgemini.programowanie.obiektowe.SupportedMetalType;
@@ -16,12 +17,12 @@ import com.capgemini.programowanie.obiektowe.warehouse.FullWarehouseException;
 import com.capgemini.programowanie.obiektowe.warehouse.ProhibitedMetalTypeException;
 import com.capgemini.programowanie.obiektowe.warehouse.WarehouseImp;
 
-public class WarehouseTest {
+public class WarehouseImpTest {
     private ClientsX testClients;
     private WarehouseImp testWarehouse;
     private String ClientIDBad;
     private String ClientIDGood;
-    private Double amount = 0.00;
+
     @BeforeEach
     public void setUp() {
         testClients = new ClientsX();
@@ -85,6 +86,20 @@ public class WarehouseTest {
         testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.IRON, 78);
 
         assertEquals(57+36+78, testWarehouse.getTotalVolumeOccupiedByClient(ClientIDGood));
+    }
+
+    @Test
+    public void testgetMetalTypesToMassStoredByClient() {
+        Map<SupportedMetalType, Double> metals= new HashMap<>();
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.COPPER, 57);
+        metals = testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood);
+        assertEquals(metals, testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood));
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.LEAD, 36);
+        metals = testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood);
+        assertEquals(metals, testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood));
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.IRON, 78);
+        metals = testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood);
+        assertEquals(metals, testWarehouse.getMetalTypesToMassStoredByClient(ClientIDGood));
     }
 
 }
