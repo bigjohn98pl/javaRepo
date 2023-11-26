@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.capgemini.programowanie.obiektowe.ClientNotFoundException;
+import com.capgemini.programowanie.obiektowe.SupportedMetalType;
 
 public class WarehouseImp implements Warehouse {
 
