@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClientsX implements Clients{
-    private Map<String,Client> clients;
+    protected Map<String,Client> clients;
     private int clientsNumber;
     private int premiumClientsNumber;
 
