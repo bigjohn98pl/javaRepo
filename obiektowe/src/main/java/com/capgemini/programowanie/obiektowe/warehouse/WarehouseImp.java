@@ -1,5 +1,6 @@
 package com.capgemini.programowanie.obiektowe.warehouse;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,8 +55,11 @@ public class WarehouseImp extends ClientsX implements Warehouse {
 
     @Override
     public List<SupportedMetalType> getStoredMetalTypesByClient(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getStoredMetalTypesByClient'");
+        List<SupportedMetalType> metalList = new ArrayList<>();
+        for (SupportedMetalType supportedMetalType : storage.get(clientId).keySet()) {
+            metalList.add(supportedMetalType);
+        }
+        return metalList;
     }
     
 }

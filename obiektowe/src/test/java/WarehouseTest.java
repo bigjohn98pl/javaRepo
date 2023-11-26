@@ -1,6 +1,10 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,6 +57,24 @@ public class WarehouseTest {
         assertThrows(FullWarehouseException.class, () -> {
             testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.IRON, 9999);
         });
+    }
+
+    @Test
+    public void testgetStoredMetalTypesByClient() {
+        List<SupportedMetalType> metalList = new ArrayList<>();
+        metalList.add(SupportedMetalType.COPPER);
+        metalList.add(SupportedMetalType.LEAD);
+        metalList.add(SupportedMetalType.IRON);
+        Collections.sort(metalList); // Sort the list
+
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.COPPER, 57);
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.LEAD, 36);
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.IRON, 78);
+
+        List<SupportedMetalType> warehouseMetals = testWarehouse.getStoredMetalTypesByClient(ClientIDGood);
+        Collections.sort(warehouseMetals); // Sort the list from warehouse
+
+        assertEquals(metalList, warehouseMetals);
     }
 
 }
