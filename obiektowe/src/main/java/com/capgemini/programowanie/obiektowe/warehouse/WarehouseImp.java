@@ -49,8 +49,11 @@ public class WarehouseImp extends ClientsX implements Warehouse {
 
     @Override
     public double getTotalVolumeOccupiedByClient(String clientId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTotalVolumeOccupiedByClient'");
+        double volume = 0.00;
+        for (double mass : storage.get(clientId).values()) {
+            volume += mass;
+        }
+        return volume;
     }
 
     @Override

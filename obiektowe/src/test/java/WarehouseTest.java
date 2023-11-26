@@ -77,4 +77,14 @@ public class WarehouseTest {
         assertEquals(metalList, warehouseMetals);
     }
 
+    @Test
+    public void testgetTotalVolumeOccupiedByClient() {
+
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.COPPER, 57);
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.LEAD, 36);
+        testWarehouse.addMetalIngot(ClientIDGood, SupportedMetalType.IRON, 78);
+
+        assertEquals(57+36+78, testWarehouse.getTotalVolumeOccupiedByClient(ClientIDGood));
+    }
+
 }
