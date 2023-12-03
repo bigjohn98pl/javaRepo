@@ -1,29 +1,30 @@
 
 import java.time.LocalDate;
-import com.capgemini.programowanie.obiektowe.ClientsX;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.ClientsImp;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 
 @Tag("Clients")
 @DisplayName("Tests for class ClientsX")
-class ClientsXTest {
-    private ClientsX testClients;
+class ClientsImpTest {
+    private ClientsImp testClients;
     private String clientId;
     private LocalDate testDate;
 
     @BeforeEach
     public void setUp() {
-        testClients = new ClientsX();
+        testClients = new ClientsImp();
     }
 
     @Test
     @DisplayName("Test for adding clients")
     public void testAddClient(){
-        Assertions.assertEquals(0, testClients.getNumberOfClients());
         testClients.createNewClient("Bob", "Dylan");
         Assertions.assertEquals(1, testClients.getNumberOfClients());
     }

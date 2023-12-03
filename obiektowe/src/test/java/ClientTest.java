@@ -1,8 +1,10 @@
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Assertions;
-import com.capgemini.programowanie.obiektowe.Client;
 import org.junit.jupiter.api.Test;
+
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.Client;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

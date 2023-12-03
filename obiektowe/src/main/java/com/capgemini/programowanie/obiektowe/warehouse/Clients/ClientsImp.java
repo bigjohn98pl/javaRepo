@@ -1,15 +1,15 @@
-package com.capgemini.programowanie.obiektowe;
+package com.capgemini.programowanie.obiektowe.warehouse.Clients;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClientsX implements Clients{
+public class ClientsImp implements Clients{
     protected Map<String,Client> clients;
     private int clientsNumber;
     private int premiumClientsNumber;
 
-    public ClientsX(){
+    public ClientsImp(){
         clients = new HashMap<>();
         clientsNumber = 0;
         premiumClientsNumber = 0;

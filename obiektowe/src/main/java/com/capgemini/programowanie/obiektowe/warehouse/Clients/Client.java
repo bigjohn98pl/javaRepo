@@ -1,4 +1,4 @@
-package com.capgemini.programowanie.obiektowe;
+package com.capgemini.programowanie.obiektowe.warehouse.Clients;
 
 import java.time.LocalDate;
 import java.util.UUID;

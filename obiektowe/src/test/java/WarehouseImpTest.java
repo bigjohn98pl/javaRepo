@@ -10,22 +10,22 @@ import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.capgemini.programowanie.obiektowe.ClientNotFoundException;
-import com.capgemini.programowanie.obiektowe.ClientsX;
 import com.capgemini.programowanie.obiektowe.SupportedMetalType;
 import com.capgemini.programowanie.obiektowe.warehouse.FullWarehouseException;
 import com.capgemini.programowanie.obiektowe.warehouse.ProhibitedMetalTypeException;
 import com.capgemini.programowanie.obiektowe.warehouse.WarehouseImp;
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.ClientNotFoundException;
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.ClientsImp;
 
 public class WarehouseImpTest {
-    private ClientsX testClients;
+    private ClientsImp testClients;
     private WarehouseImp testWarehouse;
     private String ClientIDBad;
     private String ClientIDGood;
 
     @BeforeEach
     public void setUp() {
-        testClients = new ClientsX();
+        testClients = new ClientsImp();
         testWarehouse = new WarehouseImp();
         ClientIDBad = testClients.createNewClient("Mambo", "Jambo");
         ClientIDGood = testWarehouse.createNewClient("Moki", "Poki");

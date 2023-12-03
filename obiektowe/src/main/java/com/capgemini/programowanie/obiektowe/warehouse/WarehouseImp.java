@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.capgemini.programowanie.obiektowe.ClientNotFoundException;
-import com.capgemini.programowanie.obiektowe.ClientsX;
 import com.capgemini.programowanie.obiektowe.SupportedMetalType;
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.ClientNotFoundException;
+import com.capgemini.programowanie.obiektowe.warehouse.Clients.ClientsImp;
 
-public class WarehouseImp extends ClientsX implements Warehouse {
+public class WarehouseImp extends ClientsImp implements Warehouse {
     private Map<String, Map<SupportedMetalType, Double>> storage;
     private double maxStorage;
 

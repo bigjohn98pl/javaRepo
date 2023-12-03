@@ -6,5 +6,6 @@ public class ProhibitedMetalTypeException extends RuntimeException {
     }
 
     public ProhibitedMetalTypeException(String string) {
+        super(string);
     }
 }
